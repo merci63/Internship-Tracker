@@ -2,18 +2,23 @@ package com.my.internshiptracker;
 
 import android.content.Intent;
 import android.os.Bundle;
-import android.util.Log;
+import android.view.MenuItem;
+import android.widget.TextView;
 import android.widget.Toast;
+import androidx.appcompat.widget.Toolbar;
 
-import androidx.activity.EdgeToEdge;
+
+import androidx.appcompat.app.ActionBarDrawerToggle;
 import androidx.appcompat.app.AppCompatActivity;
-import androidx.core.graphics.Insets;
-import androidx.core.view.ViewCompat;
-import androidx.core.view.WindowInsetsCompat;
+
+import androidx.core.view.GravityCompat;
+
+import androidx.drawerlayout.widget.DrawerLayout;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
-import com.google.android.material.floatingactionbutton.FloatingActionButton;
+import com.google.android.material.bottomnavigation.BottomNavigationView;
+import com.google.android.material.navigation.NavigationView;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.firestore.FirebaseFirestore;
 import com.google.firebase.firestore.QueryDocumentSnapshot;
@@ -22,13 +27,14 @@ import com.my.internshiptracker.Model.Internship;
 import java.util.ArrayList;
 import java.util.List;
 
-public class MainActivity extends AppCompatActivity implements InternshipAdapter.OnItemClickListener{
+public class MainActivity extends AppCompatActivity implements InternshipAdapter.OnItemClickListener, NavigationView.OnNavigationItemSelectedListener{
 
     private RecyclerView recyclerView;
     private InternshipAdapter adapter;
     private List<Internship> internships = new ArrayList<>();
     private FirebaseFirestore db;
     private String userId;
+    private DrawerLayout drawerLayout;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -43,14 +49,40 @@ public class MainActivity extends AppCompatActivity implements InternshipAdapter
 
         db = FirebaseFirestore.getInstance();
         userId = auth.getCurrentUser().getUid();
+
+        Toolbar toolbar = findViewById(R.id.toolbar);
+        setSupportActionBar(toolbar);
+
+        drawerLayout = findViewById(R.id.drawer_layout);
+        NavigationView navigationView = findViewById(R.id.nav_view);
+        navigationView.setNavigationItemSelectedListener(this);
+        ActionBarDrawerToggle toggle = new ActionBarDrawerToggle(this, drawerLayout, toolbar, R.string.navigation_drawer_open, R.string.navigation_drawer_close);
+        drawerLayout.addDrawerListener(toggle);
+        toggle.syncState();
+
+        TextView navHeaderEmail = navigationView.getHeaderView(0).findViewById(R.id.nav_header_email);
+        navHeaderEmail.setText(auth.getCurrentUser().getEmail());
+
+        BottomNavigationView bottomNavigationView = findViewById(R.id.bottom_navigation);
+        bottomNavigationView.setOnNavigationItemSelectedListener(item -> {
+            int itemId = item.getItemId();
+            if (itemId == R.id.nav_dashboard){
+                return true;//already on dashboard, do nothing
+            } else if (itemId == R.id.nav_add_internship) {
+                startActivity(new Intent(this, Activity_add_internship.class));
+                return true;
+            } else if (itemId == R.id.nav_profile) {
+                startActivity(new Intent(this, Activity_profile.class));
+                return true;
+            }
+            return false;
+        });
+        bottomNavigationView.setSelectedItemId(R.id.nav_dashboard);
         recyclerView = findViewById(R.id.recyclerView);
         recyclerView.setLayoutManager(new LinearLayoutManager(this));
         adapter = new InternshipAdapter(internships,this);
         recyclerView.setAdapter(adapter);
-
-        FloatingActionButton fabAdd = findViewById(R.id.fabAdd);
-        fabAdd.setOnClickListener(v -> startActivity(new Intent(this, Activity_add_internship.class)));
-
+       loadInternships();
     }
     protected void onResume(){
         super.onResume();
@@ -103,5 +135,29 @@ public class MainActivity extends AppCompatActivity implements InternshipAdapter
         }).addOnFailureListener(e -> {
             Toast.makeText(this,"Error deleting: "+ e.getMessage(),Toast.LENGTH_SHORT).show();
         });
+    }
+
+    public boolean onNavigationItemSelected(MenuItem item){
+        int itemId = item.getItemId();
+        if(itemId == R.id.nav_settings){
+            //Toast.makeText(this,"Setting selected", Toast.LENGTH_SHORT).show();
+            startActivity(new Intent(this, Activity_settings.class));
+        } else if (itemId == R.id.nav_logout) {
+            FirebaseAuth.getInstance().signOut();
+            startActivity(new Intent(this, Activity_login.class));
+            finish();
+        } else if (itemId == R.id.nav_about) {
+            startActivity(new Intent(this, Activity_about.class));
+            //Toast.makeText(this,"About selected", Toast.LENGTH_SHORT).show();
+        }
+        drawerLayout.closeDrawer(GravityCompat.START);
+        return true;
+    }
+    public void onBackPressed(){
+        if(drawerLayout.isDrawerOpen(GravityCompat.START)){
+            drawerLayout.closeDrawer(GravityCompat.START);
+        } else {
+            super.onBackPressed();
+        }
     }
 }

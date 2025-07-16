@@ -41,6 +41,7 @@ public class Activity_add_internship extends AppCompatActivity {
         notes = findViewById(R.id.etNotes);
         status = findViewById(R.id.etStatus);
         Button btnSave = findViewById(R.id.btnSave);
+        Button btnCancel = findViewById(R.id.btnCancel);
         internshipId = getIntent().getStringExtra("INTERNSHIP_ID");
         if(internshipId != null){
             company.setText(getIntent().getStringExtra("COMPANY"));
@@ -50,6 +51,9 @@ public class Activity_add_internship extends AppCompatActivity {
         }
 
         btnSave.setOnClickListener(v -> saveInternship());
+        btnCancel.setOnClickListener(v -> {
+            startActivity(new Intent(this, MainActivity.class));
+        });
 
     }
 
