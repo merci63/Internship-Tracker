@@ -33,7 +33,7 @@ public class Activity_profile extends AppCompatActivity {
 
         tvEmail = findViewById(R.id.tvEmail);
         tvEmail.setText(mAuth.getCurrentUser().getEmail());
-    }
+    }:
 
     public boolean onSupportNavigateUp(){
         finish();
