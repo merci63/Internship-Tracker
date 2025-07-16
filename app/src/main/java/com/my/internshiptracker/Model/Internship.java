@@ -7,7 +7,7 @@ public class Internship {
     private String status;
     private String notes;
 
-    public Internship(String Company, String role, String status, String notes){
+    public Internship(String company, String role, String status, String notes){
            this.company = company;
            this.role = role;
            this.status = status;

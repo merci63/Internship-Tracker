@@ -1,9 +1,9 @@
 package com.my.internshiptracker;
-import com.my.internshiptracker.Model;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.AdapterView;
+import android.widget.Button;
+import android.widget.TextView;
 
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
@@ -39,13 +39,36 @@ public class InternshipAdapter extends RecyclerView.Adapter<InternshipAdapter.Vi
         holder.tvRole.setText(internship.getRole());
         holder.tvStatus.setText(internship.getStatus());
         holder.tvNotes.setText(internship.getNotes());
+
+//        holder.itemView.setOnClickListener(v -> {
+//            listener.onEditClick(internship);
+//            //return true;
+//        });
+        holder.btnUpdate.setOnClickListener(v -> {
+            listener.onEditClick(internship);
+        });
+        holder.btnDelete.setOnClickListener(v -> {
+            listener.onDeleteClick(internship);
+           //return true;
+        });
     }
-
-
-
 
     @Override
     public int getItemCount() {
-        return 0;
+        return internships.size();
+    }
+    public static class ViewHolder extends RecyclerView.ViewHolder{
+
+        TextView tvCompany, tvRole, tvStatus, tvNotes;
+        Button btnDelete, btnUpdate;
+        public ViewHolder(@NonNull View itemView) {
+            super(itemView);
+            tvCompany = itemView.findViewById(R.id.tvCompany);
+            tvRole = itemView.findViewById(R.id.tvRole);
+            tvStatus = itemView.findViewById(R.id.tvStatus);
+            tvNotes = itemView.findViewById(R.id.tvNotes);
+            btnDelete = itemView.findViewById(R.id.btnDelete);
+            btnUpdate = itemView.findViewById(R.id.btnUpdate);
+        }
     }
 }
