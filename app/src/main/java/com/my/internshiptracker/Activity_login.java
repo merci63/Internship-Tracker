@@ -4,6 +4,7 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import androidx.activity.EdgeToEdge;
@@ -14,9 +15,12 @@ import androidx.core.view.WindowInsetsCompat;
 
 import com.google.firebase.auth.FirebaseAuth;
 
+import org.w3c.dom.Text;
+
 public class Activity_login extends AppCompatActivity {
 private FirebaseAuth mAuth;
 private EditText etEmail, etPassword;
+private TextView reset;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -25,6 +29,7 @@ private EditText etEmail, etPassword;
         mAuth.signOut();
         etEmail = findViewById(R.id.etEmail);
         etPassword = findViewById(R.id.etPassword);
+        reset = findViewById(R.id.reset);
 
         Button btnLogin = findViewById(R.id.btnLogin);
         Button btnRegister = findViewById(R.id.btnRegister);
@@ -32,6 +37,9 @@ private EditText etEmail, etPassword;
         btnLogin.setOnClickListener(v -> loginUser());
         btnRegister.setOnClickListener(v -> startActivity(new Intent(this, Activity_register.class)));
 
+        reset.setOnClickListener(v -> {
+            startActivity(new Intent(this, Activity_reset.class));
+        });
     }
 
     private void loginUser() {

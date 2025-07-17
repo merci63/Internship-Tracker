@@ -4,6 +4,7 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import androidx.activity.EdgeToEdge;
@@ -14,10 +15,13 @@ import androidx.core.view.WindowInsetsCompat;
 
 import com.google.firebase.auth.FirebaseAuth;
 
+import org.w3c.dom.Text;
+
 public class Activity_register extends AppCompatActivity {
 
     private FirebaseAuth mAuth;
     private EditText etEmail, etPass, etConfirmPass;
+    private TextView signin;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -27,8 +31,12 @@ public class Activity_register extends AppCompatActivity {
         etEmail = findViewById(R.id.etEmail);
         etPass = findViewById(R.id.etPassword);
         etConfirmPass = findViewById(R.id.etConfirmPassword);
+        signin = findViewById(R.id.signin);
         Button btnSubmit = findViewById(R.id.btnSubmitRegistrer);
         btnSubmit.setOnClickListener(v -> registerUser());
+        signin.setOnClickListener(v -> {
+            startActivity(new Intent(this, Activity_login.class));
+        });
 
     }
 
@@ -38,7 +46,7 @@ public class Activity_register extends AppCompatActivity {
         String confirm = etConfirmPass.getText().toString();
 
         if (email.isEmpty() || pass.isEmpty() || !pass.equals(confirm)){
-            Toast.makeText(this, "Invalid input", Toast.LENGTH_SHORT).show();
+            Toast.makeText(this, "Required Field", Toast.LENGTH_SHORT).show();
             return;
         }
 
