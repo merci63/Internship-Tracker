@@ -15,7 +15,15 @@
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="About Screen"
+        android:text="About"
         android:textSize="18sp"
         android:padding="16dp" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="match_parent"
+        android:autoLink="web"
+        android:textSize="16dp"
+        android:padding="16dp"
+        android:id="@+id/about"/>
 </LinearLayout>
