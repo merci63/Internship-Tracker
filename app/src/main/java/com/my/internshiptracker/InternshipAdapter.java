@@ -40,16 +40,11 @@ public class InternshipAdapter extends RecyclerView.Adapter<InternshipAdapter.Vi
         holder.tvStatus.setText(internship.getStatus());
         holder.tvNotes.setText(internship.getNotes());
 
-//        holder.itemView.setOnClickListener(v -> {
-//            listener.onEditClick(internship);
-//            //return true;
-//        });
         holder.btnUpdate.setOnClickListener(v -> {
             listener.onEditClick(internship);
         });
         holder.btnDelete.setOnClickListener(v -> {
             listener.onDeleteClick(internship);
-           //return true;
         });
     }
 
