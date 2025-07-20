@@ -10,7 +10,7 @@
     android:background="#F0F4F8"
     tools:context=".Activity_login"
     android:backgroundTint="#00FFFF"
-    >
+    android:fitsSystemWindows="true">
 
     <TextView
         android:layout_width="wrap_content"
