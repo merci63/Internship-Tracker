@@ -1,15 +1,18 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout
     xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
-    android:background="#C0C0C0">
+    android:fitsSystemWindows="true">
+
     <androidx.appcompat.widget.Toolbar
         android:layout_width="match_parent"
         android:layout_height="?attr/actionBarSize"
         android:background="?attr/colorPrimary"
         android:id="@+id/toolbar"
+        app:title="Profile"
         android:theme="@style/ThemeOverlay.AppCompat.Dark.ActionBar"/>
 
     <TextView
@@ -17,6 +20,38 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="User Email"
-        android:textSize="18sp" />
+        android:textSize="16dp"
+        android:padding="8dp"/>
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="User Name"
+        android:textSize="16dp"
+        android:id="@+id/userName"
+        android:padding="8dp"/>
+    <EditText
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="Name"
+        android:inputType="textPersonName"
+        android:padding="8dp"
+        android:id="@+id/name"/>
+
+    <Button
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Update Name"
+        android:layout_gravity="center"
+        android:layout_marginTop="16dp"
+        android:id="@+id/updateBtn"/>
+
+    <Button
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Verify Email"
+        android:layout_gravity="center"
+        android:layout_marginTop="16dp"
+        android:id="@+id/verifyEmail"/>
 
 </LinearLayout>
