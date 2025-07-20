@@ -62,6 +62,8 @@ public class MainActivity extends AppCompatActivity implements InternshipAdapter
 
         TextView navHeaderEmail = navigationView.getHeaderView(0).findViewById(R.id.nav_header_email);
         navHeaderEmail.setText(auth.getCurrentUser().getEmail());
+        TextView navHeaderUserName = navigationView.getHeaderView(0).findViewById(R.id.nav_header_name);
+        navHeaderUserName.setText(auth.getCurrentUser().getDisplayName());
 
         BottomNavigationView bottomNavigationView = findViewById(R.id.bottom_navigation);
         bottomNavigationView.setOnNavigationItemSelectedListener(item -> {
