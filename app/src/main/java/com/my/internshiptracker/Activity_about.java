@@ -2,6 +2,7 @@ package com.my.internshiptracker;
 
 import android.os.Bundle;
 import android.text.method.LinkMovementMethod;
+import android.view.MenuItem;
 import android.widget.TextView;
 
 import androidx.appcompat.widget.Toolbar;
@@ -34,6 +35,7 @@ public class Activity_about extends AppCompatActivity {
         about.setMovementMethod(LinkMovementMethod.getInstance());
 
     }
+
 
    public boolean onSupportNavigateUp(){
         finish();
