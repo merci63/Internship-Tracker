@@ -7,16 +7,23 @@ This app is made to make internship searching and application tracking easier. S
 **Job Browsing:** Shows lists of internship from Adzuna and view them in a scrollable list.  
 ![Job Browsing Screenshot](Screenshots/browse.png)
 
-**User Authentication:** It allows users to register, login, change and reset their password using FirebaseAuth.
-![Login Screenshot](Screenshot/login.png)  
-![Registration Screenshot](Screenshot/registration.png)  
-![Forget Password Screenshot](Screenshot/forgetPass.png)  
-![Change Password Screenshot](Screenshot/settings.png)  
-**Internship Tracking:** It allows users to add, update, delete, and view internship applications saved in Firebase Firestore.  
-![Internship Tracking Screenshot](Screenshot/Add.png)  
+**User Authentication:** It allows users to register, login, change and reset their password using FirebaseAuth.  
 
-**Settings:** It allows user to switch between dark and light mode, and change their password securely.   
-![Settings](Screenshot/settings.png)  
+![Login Screenshot](Screenshots/login.png)   
+
+![Registration Screenshot](Screenshots/registration.png)    
+
+![Forget Password Screenshot](Screenshots/forgetPass.png)    
+
+![Change Password Screenshot](Screenshots/settings.png)   
+
+**Internship Tracking:** It allows users to add, update, delete, and view internship applications saved in Firebase Firestore.  
+
+![Internship Tracking Screenshot](Screenshots/Add.png)  
+
+**Settings:** It allows user to switch between dark and light mode, and change their password securely.    
+
+![Settings](Screenshots/settings.png)   
 
 # I used
 **Java**  
