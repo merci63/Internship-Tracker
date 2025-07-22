@@ -19,7 +19,9 @@ This app is made to make internship searching and application tracking easier. S
 
 **Internship Tracking:** It allows users to add, update, delete, and view internship applications saved in Firebase Firestore.  
 
-![Internship Tracking Screenshot](Screenshots/Add.png)  
+![Internship Tracking Screenshot](Screenshots/Add.png)    
+![Dashboard Screenshot](Screenshots/dashboard.png)  
+
 
 **Settings:** It allows user to switch between dark and light mode, and change their password securely.    
 
