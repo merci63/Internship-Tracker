@@ -10,11 +10,11 @@ This app is made to make internship searching and application tracking easier. S
 **Settings:** It allows user to switch between dark and light mode, and change their password securely.  
 
 # I used
-**Java**
-**Android Studio**
-**Firebase Firestore**
-**Firebase Authentication**  
-**Adzuna API**  
+**Java**  
+**Android Studio**  
+**Firebase Firestore**  
+**Firebase Authentication**    
+**Adzuna API**    
 
 
    
