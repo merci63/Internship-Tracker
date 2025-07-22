@@ -40,7 +40,6 @@ public class Activity_profile extends AppCompatActivity {
         mAuth = FirebaseAuth.getInstance();
         db = FirebaseFirestore.getInstance();
         FirebaseUser user = mAuth.getCurrentUser();
-        Log.d("Activity_profile", "Current user: " + (mAuth.getCurrentUser() != null ? mAuth.getCurrentUser().getUid() : "null"));
         if (user == null) {
             Toast.makeText(this,"User not logged in", Toast.LENGTH_SHORT).show();
             startActivity(new Intent(this, Activity_login.class));

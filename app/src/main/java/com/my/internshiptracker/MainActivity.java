@@ -1,8 +1,10 @@
 package com.my.internshiptracker;
 
+import android.content.BroadcastReceiver;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.MenuItem;
+import android.widget.Button;
 import android.widget.TextView;
 import android.widget.Toast;
 import androidx.appcompat.widget.Toolbar;
@@ -52,6 +54,7 @@ public class MainActivity extends AppCompatActivity implements InternshipAdapter
 
         Toolbar toolbar = findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
+        Button btnBrowse = findViewById(R.id.btnBrowse);
 
         drawerLayout = findViewById(R.id.drawer_layout);
         NavigationView navigationView = findViewById(R.id.nav_view);
@@ -78,6 +81,9 @@ public class MainActivity extends AppCompatActivity implements InternshipAdapter
                 return true;
             }
             return false;
+        });
+        btnBrowse.setOnClickListener(v -> {
+            startActivity(new Intent(this, Activity_browse.class));
         });
         bottomNavigationView.setSelectedItemId(R.id.nav_dashboard);
         recyclerView = findViewById(R.id.recyclerView);

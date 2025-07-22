@@ -40,6 +40,11 @@ private TextView reset;
         reset.setOnClickListener(v -> {
             startActivity(new Intent(this, Activity_reset.class));
         });
+        if (mAuth.getCurrentUser() != null){
+            Intent intent = new Intent(this, Activity_browse.class);
+            startActivity(intent);
+            finish();
+        }
     }
 
     private void loginUser() {

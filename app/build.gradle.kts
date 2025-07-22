@@ -1,11 +1,25 @@
+
+import java.util.Properties
+import java.io.FileInputStream;
+
 plugins {
     alias(libs.plugins.android.application)
     id("com.google.gms.google-services")
 }
 
+val localProperties = Properties()
+val localPropertiesFile = rootProject.file("local.properties")
+if (localPropertiesFile.exists()){
+    localProperties.load(FileInputStream(localPropertiesFile))
+}
+
 android {
     namespace = "com.my.internshiptracker"
     compileSdk = 35
+
+    buildFeatures {
+        buildConfig = true
+    }
 
     defaultConfig {
         applicationId = "com.my.internshiptracker"
@@ -14,7 +28,11 @@ android {
         versionCode = 1
         versionName = "1.0"
 
+
+        buildConfigField ("String","ADZUNA_APP_ID", "\"${localProperties.getProperty("adzuna.app.id") ?: ""}\"")
+        buildConfigField ("String","ADZUNA_API_KEY","\"${localProperties.getProperty("adzuna.app.key") ?: ""}\"")
         testInstrumentationRunner = "androidx.test.runner.AndroidJUnitRunner"
+
     }
 
     buildTypes {
@@ -29,6 +47,7 @@ android {
     compileOptions {
         sourceCompatibility = JavaVersion.VERSION_11
         targetCompatibility = JavaVersion.VERSION_11
+
     }
 }
 
@@ -48,4 +67,6 @@ dependencies {
     implementation("androidx.recyclerview:recyclerview:1.4.0")
     implementation ("androidx.cardview:cardview:1.0.0")
     implementation ("androidx.appcompat:appcompat:1.6.1")
+    implementation ("com.android.volley:volley:1.2.1")
+    implementation ("com.google.android.material:material:<version>")
 }
