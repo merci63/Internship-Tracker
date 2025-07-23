@@ -5,9 +5,27 @@
 This app is made to make internship searching and application tracking easier. Students can save details about the internships they applied to and also explore new internship listings in real-time. The job browsing part uses the Adzuna API to show Canadian internship directly inside the app.  
 # Key Features
 **Job Browsing:** Shows lists of internship from Adzuna and view them in a scrollable list.  
+![Job Browsing Screenshot](Screenshots/browse.png)
+
 **User Authentication:** It allows users to register, login, change and reset their password using FirebaseAuth.  
+
+![Login Screenshot](Screenshots/login.png)   
+
+![Registration Screenshot](Screenshots/registration.png)    
+
+![Forget Password Screenshot](Screenshots/forgetPass.png)    
+
+![Change Password Screenshot](Screenshots/settings.png)   
+
 **Internship Tracking:** It allows users to add, update, delete, and view internship applications saved in Firebase Firestore.  
-**Settings:** It allows user to switch between dark and light mode, and change their password securely.  
+
+![Internship Tracking Screenshot](Screenshots/Add.png)    
+![Dashboard Screenshot](Screenshots/dashboard.png)  
+
+
+**Settings:** It allows user to switch between dark and light mode, and change their password securely.    
+
+![Settings](Screenshots/settings.png)   
 
 # I used
 **Java**  
