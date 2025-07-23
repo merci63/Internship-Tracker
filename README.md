@@ -32,7 +32,9 @@ This app is made to make internship searching and application tracking easier. S
 **Android Studio** - Development environment.     
 **Firebase Firestore** - Cloud NoSQL database for storing users and internship data.   
 **Firebase Authentication** - User login, registration, and password management.     
-**Adzuna API** - Internship listing provider.     
+**Adzuna API** - Internship listing provider.   
+## [View Latest Release](https://github.com/merci63/Internship-Tracker/releases)   
+
 
 
    
