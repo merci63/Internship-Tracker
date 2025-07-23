@@ -28,11 +28,11 @@ This app is made to make internship searching and application tracking easier. S
 ![Settings](Screenshots/settings.png)   
 
 # I used
-**Java**  
-**Android Studio**  
-**Firebase Firestore**  
-**Firebase Authentication**    
-**Adzuna API**    
+**Java** - Core programming language.   
+**Android Studio** - Development environment.     
+**Firebase Firestore** - Cloud NoSQL database for storing users and internship data.   
+**Firebase Authentication** - User login, registration, and password management.     
+**Adzuna API** - Internship listing provider.     
 
 
    
